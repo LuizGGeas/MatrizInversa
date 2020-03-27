@@ -6,9 +6,13 @@ class matriz:
     def __init__(self,  matriz):
         self.matriz = matriz
         tam = len(matriz)
-        self.inversa = [[0]*tam]*tam
         for i in range(tam):
-            self.inversa[i][i] = 1
+            linha = []
+            for j in range(tam):
+                linha.append(0 if i != j else 1)
+            self.inversa.append(linha)
+
+
     def calcLinha(self, i, j):
         print(f'passou com linha 1: {self.matriz[i]} e linha 2: {self.matriz[j]} usando de mult: {self.matriz[j][i]}/{self.matriz[i][i]}')
 
@@ -25,7 +29,6 @@ class matriz:
                         for k in range(len(self.matriz)):
                             self.matriz[i][k] /= self.matriz[i][i]
                             self.inversa[i][k] /= (self.matriz[i][i]
-                        print(f'{self.matriz[i]} | {self.inversa[i]}')
 
                     if self.matriz[i][i] == 0:
                         print('trocou linha')
