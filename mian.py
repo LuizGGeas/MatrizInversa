@@ -1,0 +1,6 @@
+class matriz:
+
+    matriz = []
+    inversa = []
+
+    
