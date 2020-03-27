@@ -23,7 +23,8 @@ class matriz:
                     if self.matriz[i][i] != 1:
                         print('tornou pivo 1')
                         for k in range(len(self.matriz)):
-                            self.matriz[i][k]/=(float)(self.matriz[i][i])
+                            self.matriz[i][k]/=self.matriz[i][i]
+                            self.inversa[i][k]/=self.matriz[i][i]
                         print(self.matriz[i])
                     if self.matriz[i][i] == 0:
                         print('trocou linha')
@@ -31,10 +32,16 @@ class matriz:
                             aux = self.matriz[i-1]
                             self.matriz[i-1] = self.matriz[i]
                             self.matriz[i] = aux
+                            aux = self.inversa[i-1]
+                            self.inversa[i-1] = self.inversa[i]
+                            self.inversa[i] = aux
                         else:
                             aux = self.matriz[i+1]
                             self.matriz[i+1] = self.matriz[i]
                             self.matriz[i] = aux
+                            aux = self.inversa[i+1]
+                            self.inversa[i+1] = self.inversa[i]
+                            self.inversa[i] = aux
                     self.calcLinha(i, j)
 
     def validar(self) -> bool:
