@@ -23,9 +23,10 @@ class matriz:
                     if self.matriz[i][i] != 1:
                         print('tornou pivo 1')
                         for k in range(len(self.matriz)):
-                            self.matriz[i][k]/=self.matriz[i][i]
-                            self.inversa[i][k]/=self.matriz[i][i]
-                        print(self.matriz[i])
+                            self.matriz[i][k] /= self.matriz[i][i]
+                            self.inversa[i][k] /= (self.matriz[i][i]
+                        print(f'{self.matriz[i]} | {self.inversa[i]}')
+
                     if self.matriz[i][i] == 0:
                         print('trocou linha')
                         if i == len(self.matriz)-1:
